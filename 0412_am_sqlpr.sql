@@ -1,0 +1,84 @@
+REM   Script: 0412_am_sqlpr
+REM   04월12일 오전 sql 연습
+
+CREATE TABLE OLYMPIC ( 
+ 
+    olympic_id  NUMBER    NOT NULL, 
+ 
+    host_city  CHAR(15) NOT NULL, 
+ 
+    host_year  INT  NOT NULL, 
+ 
+    CONSTRAINT OLYMPIC_PK PRIMARY KEY (olympic_id) 
+ 
+);
+
+SELECT * FROM olympic WHERE host_city = '서울';
+
+CREATE TABLE TEAM (  
+ 
+TEAM_NO CHAR(4) ,  
+ 
+TEAM_NM VARCHAR2(50) NOT NULL ,  
+ 
+CONSTRAINT TEAM_PK PRIMARY KEY (TEAM_NO) );
+
+INSERT INTO TEAM (TEAM_NO, TEAM_NM) VALUES ('D001', '마케팅팀');
+
+INSERT INTO TEAM (TEAM_NO, TEAM_NM) VALUES ('D002', '개발팀'); COMMIT;
+
+INSERT INTO TEAM (TEAM_NO, TEAM_NM) VALUES ('D001', '마케팅팀');
+
+INSERT INTO TEAM (TEAM_NO, TEAM_NM) VALUES ('D002', '개발팀');
+
+COMMIT;
+
+ELECT COUNT(TEAM_NO)  
+
+
+FROM TEAM  
+
+
+WHERE TEAM_NO = 1001 ;
+
+
+DROP TABLE TEAM;
+
+CREATE TABLE TEAM (  
+ 
+TEAM_NO CHAR(4) ,  
+ 
+TEAM_NM VARCHAR2(50) NOT NULL ,  
+ 
+CONSTRAINT TEAM_PK PRIMARY KEY (TEAM_NO) );
+
+INSERT INTO TEAM (TEAM_NO, TEAM_NM) VALUES ('D001', '마케팅팀');
+
+INSERT INTO TEAM (TEAM_NO, TEAM_NM) VALUES ('D002', '개발팀');
+
+COMMIT;
+
+SELECT COUNT(TEAM_NO)  
+FROM TEAM  
+WHERE TEAM_NO = 1001 ;
+
+INSERT INTO OLYMPIC (olympic_id, host_city, host_year) VALUES (1, '서울', 1988);
+
+INSERT INTO OLYMPIC (olympic_id, host_city, host_year) VALUES (2, '평양', 2024);
+
+INSERT INTO OLYMPIC (olympic_id, host_city, host_year) VALUES (3, '도쿄', 2019);
+
+SELECT * FROM OLYMPIC ;
+
+SELECT * FROM olympic WHERE host_city = '서울';
+
+UPDATE olympic SET host_city = '평창' WHERE host_city = '평양';
+
+SELECT * FROM OLYMPIC ;
+
+SELECT * FROM OLYMPIC ;
+
+DELETE FROM olympic WHERE host_year = 2019;
+
+SELECT * FROM OLYMPIC ;
+
